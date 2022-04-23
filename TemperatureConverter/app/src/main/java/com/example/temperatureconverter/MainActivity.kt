@@ -3,7 +3,6 @@ package com.example.temperatureconverter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.temperatureconverter.databinding.ActivityMainBinding
-import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun tempConversion() {
-        var temperature: Double? = binding.temperatureInput.text.toString().toDoubleOrNull()
+        val temperature: Double? = binding.temperatureInput.text.toString().toDoubleOrNull()
         if (temperature == null) {
             binding.result.text = ""
             return
