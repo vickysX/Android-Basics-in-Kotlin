@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Temperature Converter</string>
+    <string name="start_unit_measure">From which unit measure would you like to start?</string>
+    <string name="choose_celsius">Celsius (C°)</string>
+    <string name="choose_fahrenheit">Fahrenheit (F°)</string>
+    <string name="temperature">Insert the temperature</string>
+    <string name="conversion">Convert</string>
+    <string name="result">Result: %s</string>
+</resources>
