@@ -2,7 +2,6 @@ package com.example.tiptime
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewAction
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -29,7 +28,7 @@ class ExampleInstrumentedTest {
     val activity = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun calculate_20_percent_tip() {
+    fun calculate_20_percent_tip_rounded_up() {
         onView(withId(R.id.cost_of_service_edit_text))
             .perform(typeText("50.00"))
             .perform(closeSoftKeyboard())
@@ -37,6 +36,80 @@ class ExampleInstrumentedTest {
         onView(withId(R.id.calculate_button)).perform(click())
 
         onView(withId(R.id.tip_result))
-            .check(matches(withText(containsString("10,00 €"))))
+            .check(matches(withText(containsString("Tip amount: 10,00"))))
+    }
+
+    @Test
+    fun calculate_18_percent_tip_rounded_up() {
+        onView(withId(R.id.cost_of_service_edit_text))
+            .perform(typeText("50.00"))
+            .perform(closeSoftKeyboard())
+
+        onView(withId(R.id.option_eighteen_percent)).perform(click())
+
+        onView(withId(R.id.calculate_button)).perform(click())
+
+        onView(withId(R.id.tip_result))
+            .check(matches(withText(containsString("Tip amount: 9,00"))))
+    }
+
+    @Test
+    fun calculate_15_percent_tip_rounded_up() {
+        onView(withId(R.id.cost_of_service_edit_text))
+            .perform(typeText("50.00"))
+            .perform(closeSoftKeyboard())
+
+        onView(withId(R.id.option_fifteen_percent)).perform(click())
+
+        onView(withId(R.id.calculate_button)).perform(click())
+
+        onView(withId(R.id.tip_result))
+            .check(matches(withText(containsString("Tip amount: 8,00"))))
+    }
+
+    @Test
+    fun calculate_20_percent_tip() {
+        onView(withId(R.id.cost_of_service_edit_text))
+            .perform(typeText("53.00"))
+            .perform(closeSoftKeyboard())
+
+        onView(withId(R.id.round_up_switch)).perform(click())
+
+        onView(withId(R.id.calculate_button)).perform(click())
+
+        onView(withId(R.id.tip_result))
+            .check(matches(withText(containsString("Tip amount: 10,60"))))
+    }
+
+    @Test
+    fun calculate_18_percent_tip() {
+        onView(withId(R.id.cost_of_service_edit_text))
+            .perform(typeText("53.00"))
+            .perform(closeSoftKeyboard())
+
+        onView(withId(R.id.option_eighteen_percent)).perform(click())
+
+        onView(withId(R.id.round_up_switch)).perform(click())
+
+        onView(withId(R.id.calculate_button)).perform(click())
+
+        onView(withId(R.id.tip_result))
+            .check(matches(withText(containsString("Tip amount: 9,54"))))
+    }
+
+    @Test
+    fun calculate_15_percent_tip() {
+        onView(withId(R.id.cost_of_service_edit_text))
+            .perform(typeText("53.00"))
+            .perform(closeSoftKeyboard())
+
+        onView(withId(R.id.option_fifteen_percent)).perform(click())
+
+        onView(withId(R.id.round_up_switch)).perform(click())
+
+        onView(withId(R.id.calculate_button)).perform(click())
+
+        onView(withId(R.id.tip_result))
+            .check(matches(withText(containsString("Tip amount: 7,95"))))
     }
 }
