@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun tempConversion() {
-        val temperature: Double? = binding.temperatureInput.text.toString().toDoubleOrNull()
+        val temperature: Double? = binding.temperatureInputEditText.text.toString().toDoubleOrNull()
         if (temperature == null) {
             binding.result.text = ""
             return
@@ -25,17 +25,23 @@ class MainActivity : AppCompatActivity() {
                 R.id.celsiusOption -> calculateFahrenheit(temperature)
                 else -> calculateCelsius(temperature)
             }
-            binding.result.text = getString(R.string.result, finalTemperature)
+            binding.result.text = getString(R.string.result, finalTemperature) // getString(<string_resource_id>, <value_to_insert_in_place_of_%s>)
         }
     }
 
     private fun calculateFahrenheit(tempCelsius: Double): String {
         val tempFahr = tempCelsius.times(1.8).plus(32)
-        return String.format("%.2f", tempFahr) + " F°"
+        return "${formatTemp(tempFahr)} F°"
     }
 
     private fun calculateCelsius(tempFahrenheit: Double): String {
         val tempCel = tempFahrenheit.minus(32).div(0.556)
-        return String.format("%.2f", tempCel) + " C°"
+        return "${formatTemp(tempCel)} C°"
+    }
+
+    private fun formatTemp(aTemp: Double): String {
+        var tempText = aTemp.toString()
+        if (binding.roundSwitch.isChecked) tempText = String.format("%.2f", aTemp)
+        return tempText
     }
 }

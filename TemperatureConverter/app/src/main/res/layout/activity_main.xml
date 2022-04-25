@@ -1,80 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- ScrollView permette di visualizzare correttamente i contenuti anche quando si ruota il dispositivo -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/startQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start_unit_measure"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_margin"
+        tools:context=".MainActivity">
 
-    <RadioGroup
-        android:id="@+id/startUnityMeasure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical"
-        android:checkedButton="@id/celsiusOption"
-        app:layout_constraintTop_toBottomOf="@id/startQuestion"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <RadioButton
-            android:id="@+id/celsiusOption"
+        <TextView
+            android:id="@+id/startQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/choose_celsius"/>
+            android:layout_marginStart="@dimen/padding_margin"
+            android:text="@string/start_unit_measure"
+            style="@style/Widget.TemperatureConverter.TextView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/startIcon"/>
 
-        <RadioButton
-            android:id="@+id/fahrenheitOption"
+        <ImageView
+            android:id="@+id/startIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/choose_fahrenheit"/>
-    </RadioGroup>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/startQuestion"
+            app:layout_constraintTop_toTopOf="@id/startQuestion"
+            app:layout_constraintBottom_toBottomOf="@id/startQuestion"
+            app:srcCompat="@drawable/ic_sun"/>
 
-    <EditText
-        android:id="@+id/temperatureInput"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="@string/temperature"
-        android:inputType="numberDecimal"
-        app:layout_constraintTop_toBottomOf="@id/startUnityMeasure"
-        app:layout_constraintStart_toStartOf="parent"/>
+        <RadioGroup
+            android:id="@+id/startUnityMeasure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/celsiusOption"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/startQuestion"
+            app:layout_constraintTop_toBottomOf="@id/startQuestion">
 
-    <Button
-        android:id="@+id/convertButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/conversion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/temperatureInput"/>
+            <RadioButton
+                android:id="@+id/celsiusOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_celsius" />
 
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        tools:hint="@string/result"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/convertButton"/>
+            <RadioButton
+                android:id="@+id/fahrenheitOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_fahrenheit" />
+        </RadioGroup>
 
-    <ImageView
-        android:id="@+id/funnyImage"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/thermometer"
-        app:layout_constraintTop_toBottomOf="@id/result"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/temperatureInput"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="@dimen/padding_margin"
+            android:hint="@string/temperature"
+            app:layout_constraintStart_toEndOf="@id/inputIcon"
+            app:layout_constraintTop_toBottomOf="@id/startUnityMeasure">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/temperatureInput_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/inputIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/temperatureInput"
+            app:layout_constraintBottom_toBottomOf="@id/temperatureInput"
+            app:layout_constraintEnd_toStartOf="@id/temperatureInput"
+            app:srcCompat="@drawable/ic_snow"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/round_switch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_margin"
+            android:layout_marginStart="@dimen/padding_margin"
+            android:checked="true"
+            android:text="@string/switch_text"
+            app:layout_constraintTop_toBottomOf="@id/temperatureInput"
+            app:layout_constraintStart_toEndOf="@id/switchIcon"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/switchIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_air"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/round_switch"
+            app:layout_constraintBottom_toBottomOf="@id/round_switch"
+            app:layout_constraintEnd_toStartOf="@id/round_switch"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/convertButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_margin"
+            android:text="@string/conversion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/round_switch"
+            app:layout_constraintTop_toBottomOf="@id/round_switch" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/convertButton"
+            tools:hint="@string/result" />
+
+        <ImageView
+            android:id="@+id/funnyImage"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/thermometer"
+            android:src="@drawable/thermometer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/result" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

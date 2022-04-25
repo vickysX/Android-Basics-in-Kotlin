@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">Temperature Converter</string>
-    <string name="start_unit_measure">From which unit measure would you like to start?</string>
+    <string name="start_unit_measure">Start unit measure:</string>
     <string name="choose_celsius">Celsius (C°)</string>
     <string name="choose_fahrenheit">Fahrenheit (F°)</string>
     <string name="temperature">Insert the temperature</string>
     <string name="conversion">Convert</string>
     <string name="result">Result: %s</string>
+    <string name="thermometer">A thermometer</string>
+    <string name="switch_text">Round to two decimal places?</string>
 </resources>
