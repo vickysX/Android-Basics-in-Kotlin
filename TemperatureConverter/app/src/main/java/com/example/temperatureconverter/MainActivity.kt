@@ -1,7 +1,11 @@
 package com.example.temperatureconverter
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent.KEYCODE_ENTER
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import com.example.temperatureconverter.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +17,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.convertButton.setOnClickListener { tempConversion() }
+        binding.temperatureInputEditText.setOnKeyListener { view, keyCode, _ ->
+            handleKeyEvent(
+                view,
+                keyCode
+            )
+        }
     }
 
     private fun tempConversion() {
@@ -25,7 +35,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.celsiusOption -> calculateFahrenheit(temperature)
                 else -> calculateCelsius(temperature)
             }
-            binding.result.text = getString(R.string.result, finalTemperature) // getString(<string_resource_id>, <value_to_insert_in_place_of_%s>)
+            binding.result.text = getString(
+                R.string.result,
+                finalTemperature
+            ) // getString(<string_resource_id>, <value_to_insert_in_place_of_%s>)
         }
     }
 
@@ -43,5 +56,16 @@ class MainActivity : AppCompatActivity() {
         var tempText = aTemp.toString()
         if (binding.roundSwitch.isChecked) tempText = String.format("%.2f", aTemp)
         return tempText
+    }
+
+    private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
+        if (keyCode == KEYCODE_ENTER) {
+            // hide the keyboard
+            val inputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+            return true
+        }
+        return false
     }
 }
