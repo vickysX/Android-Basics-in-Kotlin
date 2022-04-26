@@ -47,4 +47,26 @@ class ConverterTest {
         onView(withId(R.id.result))
             .check(matches(withText(containsString("Result: -39.568345323741006 C°"))))
     }
+
+    @Test
+    fun convert_C_to_F_round() {
+        onView(withId(R.id.celsiusOption)).perform(click())
+        onView(withId(R.id.temperatureInput_editText))
+            .perform(typeText("27.00"))
+            .perform(closeSoftKeyboard())
+        onView(withId(R.id.convertButton)).perform(click())
+        onView(withId(R.id.result))
+            .check(matches(withText(containsString("Result: 80,60 F°"))))
+    }
+
+    fun convert_C_to_F_no_round() {
+        onView(withId(R.id.celsiusOption)).perform(click())
+        onView(withId(R.id.temperatureInput_editText))
+            .perform(typeText("27.00"))
+            .perform(closeSoftKeyboard())
+        onView(withId(R.id.round_switch)).perform(click())
+        onView(withId(R.id.convertButton)).perform(click())
+        onView(withId(R.id.result))
+            .check(matches(withText(containsString("Result: 80,60 F°"))))
+    }
 }
