@@ -7,8 +7,7 @@ import android.view.KeyEvent.KEYCODE_ENTER
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.example.temperatureconverter.databinding.ActivityMainBinding
-import kotlin.math.ceil
-import kotlin.math.round
+import kotlin.math.*
 
 class MainActivity : AppCompatActivity() {
 
