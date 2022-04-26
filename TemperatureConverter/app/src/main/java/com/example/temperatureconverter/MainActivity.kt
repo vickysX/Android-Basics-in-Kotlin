@@ -7,6 +7,8 @@ import android.view.KeyEvent.KEYCODE_ENTER
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.example.temperatureconverter.databinding.ActivityMainBinding
+import kotlin.math.ceil
+import kotlin.math.round
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calculateFahrenheit(tempCelsius: Double): String {
-        val tempFahr = tempCelsius.times(1.8).plus(32)
+        val tempFahr: Double = tempCelsius.times(1.8).plus(32)
         return "${formatTemp(tempFahr)} F°"
     }
 
@@ -54,7 +56,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun formatTemp(aTemp: Double): String {
         var tempText = aTemp.toString()
-        if (binding.roundSwitch.isChecked) tempText = String.format("%.2f", aTemp)
+        if (round(aTemp) == aTemp) {
+            val temp = aTemp.toInt()
+            tempText = temp.toString()
+        } else if (binding.roundSwitch.isChecked) {
+            tempText = String.format("%.2f", aTemp)
+        }
         return tempText
     }
 

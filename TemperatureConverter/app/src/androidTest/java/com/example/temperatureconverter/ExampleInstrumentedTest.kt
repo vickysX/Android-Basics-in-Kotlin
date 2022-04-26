@@ -59,6 +59,7 @@ class ConverterTest {
             .check(matches(withText(containsString("Result: 80,60 F°"))))
     }
 
+    @Test
     fun convert_C_to_F_no_round() {
         onView(withId(R.id.celsiusOption)).perform(click())
         onView(withId(R.id.temperatureInput_editText))
@@ -68,5 +69,17 @@ class ConverterTest {
         onView(withId(R.id.convertButton)).perform(click())
         onView(withId(R.id.result))
             .check(matches(withText(containsString("Result: 80,60 F°"))))
+    }
+
+    @Test
+    fun check_integer_result() {
+        onView(withId(R.id.celsiusOption)).perform(click())
+        onView(withId(R.id.temperatureInput_editText))
+            .perform(typeText("30.00"))
+            .perform(closeSoftKeyboard())
+        onView(withId(R.id.round_switch)).perform(click())
+        onView(withId(R.id.convertButton)).perform(click())
+        onView(withId(R.id.result))
+            .check(matches(withText(containsString("Result: 86 F°"))))
     }
 }
