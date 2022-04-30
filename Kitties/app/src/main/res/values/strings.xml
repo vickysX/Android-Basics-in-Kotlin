@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Kitties</string>
+    <string name="welcome">Welcome to Kitties!</string>
+    <string name="choose_view">Please, choose your favorite layout</string>
+    <string name="vertical_button">Vertical</string>
+    <string name="grid_button">Grid</string>
+
+    <string name="nike_kokori">Nike &amp; Kokorì</string>
+    <string name="lilith">Lilith</string>
+</resources>
