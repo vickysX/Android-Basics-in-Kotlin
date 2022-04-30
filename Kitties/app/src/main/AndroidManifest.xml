@@ -39,6 +39,10 @@
             android:name=".NikeKorokiActivity"
             android:exported="true"/>
 
+        <activity
+            android:name=".LilithActivity"
+            android:exported="true"/>
+
     </application>
 
 </manifest>
