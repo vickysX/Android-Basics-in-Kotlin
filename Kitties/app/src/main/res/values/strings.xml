@@ -1,14 +1,10 @@
 <resources>
     <string name="app_name">Kitties</string>
-    <string name="welcome">Benvenut* in Kitties!</string>
-    <string name="choose_view">Scegliete il layout</string>
-    <string name="vertical_button">Verticale</string>
-    <string name="grid_button">Griglia</string>
-
     <string name="nike_kokori">Nike &amp; Kokorì</string>
     <string name="lilith">Lilith</string>
     <string name="nike_korori_age">Età: 2 anni e mezzo</string>
     <string name="nike_korori_descr">Amano abbracciarsi sul letto della loro compagna umana.</string>
     <string name="lilith_age">Età: Antica quanto il mondo</string>
     <string name="lilith_descr">Sia lode all\'unico vero Signore Lucifero!</string>
+    <string name="action_switch_layout">Cambia layout</string>
 </resources>

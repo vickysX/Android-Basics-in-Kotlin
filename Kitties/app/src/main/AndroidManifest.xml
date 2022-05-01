@@ -20,28 +20,12 @@
         </activity>
 
         <activity
-            android:name=".GridActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
-        </activity>
-
-        <activity
-            android:name=".VerticalActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
-        </activity>
-
-        <activity
             android:name=".NikeKorokiActivity"
-            android:exported="true"/>
+            android:parentActivityName=".MainActivity"/>
 
         <activity
             android:name=".LilithActivity"
-            android:exported="true"/>
+            android:parentActivityName=".MainActivity"/>
 
     </application>
 

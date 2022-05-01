@@ -8,5 +8,7 @@ class NikeKorokiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nike_koroki)
+        title = "Nike & Koroki"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }
