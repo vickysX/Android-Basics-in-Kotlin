@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Tassa Affitto</string>
+    <string name="canone_annuo">Canone Annuo</string>
+    <string name="calcolo_prima_rata">Prima rata</string>
+    <string name="calcolo_seconda_rata">Seconda rata</string>
+    <string name="calcolo_terza_rata">Terza rata</string>
+    <string name="scelta_rata">Scegli la rata da calcolare:</string>
+    <string name="calcola">Calcola</string>
+    <string name="intro_result">A %s devi pagare:</string>
+</resources>

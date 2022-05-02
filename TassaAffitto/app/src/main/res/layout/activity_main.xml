@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/canone_annuo"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/canone_annuo_icon"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/canone_annuo_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/canone_annuo"
+            android:inputType="numberDecimal"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/canone_annuo_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="@id/canone_annuo"
+        app:layout_constraintEnd_toStartOf="@id/canone_annuo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/canone_annuo"
+        app:srcCompat="@drawable/ic_canone_annuo" />
+
+    <TextView
+        android:id="@+id/choice_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/scelta_rata"
+        android:textAppearance="?attr/textAppearanceBody1"
+        app:layout_constraintStart_toStartOf="@id/canone_annuo"
+        app:layout_constraintTop_toBottomOf="@id/canone_annuo" />
+
+    <RadioGroup
+        android:id="@+id/calculate_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/choice_question"
+        app:layout_constraintTop_toBottomOf="@id/choice_question">
+
+        <RadioButton
+            android:id="@+id/prima_rata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/calcolo_prima_rata"
+            android:textAppearance="?attr/textAppearanceBody1" />
+
+        <RadioButton
+            android:id="@+id/seconda_rata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/calcolo_seconda_rata"
+            android:textAppearance="?attr/textAppearanceBody1" />
+
+        <RadioButton
+            android:id="@+id/terza_rata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/calcolo_terza_rata"
+            android:textAppearance="?attr/textAppearanceBody1" />
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calculation_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/calcola"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/calculate_options"
+        app:layout_constraintTop_toBottomOf="@id/calculate_options" />
+
+    <TextView
+        android:id="@+id/intro_result"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:textAlignment="center"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:textSize="19dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/calculation_button"
+        app:layout_constraintTop_toBottomOf="@id/calculation_button"
+        tools:text="A giugno dovrai pagare:" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:textAppearance="?attr/textAppearanceHeadline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/intro_result"
+        app:layout_constraintTop_toBottomOf="@id/intro_result"
+        tools:text="383,04" />
+
+    <ImageView
+        android:id="@+id/choice_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="@id/choice_question"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/choice_question"
+        app:srcCompat="@drawable/ic_money" />
+
+    <ImageView
+        android:id="@+id/result_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="@id/intro_result"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/intro_result"
+        tools:srcCompat="@drawable/ic_money_off" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
