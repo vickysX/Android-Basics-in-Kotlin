@@ -7,4 +7,5 @@
     <string name="scelta_rata">Scegli la rata da calcolare:</string>
     <string name="calcola">Calcola</string>
     <string name="intro_result">A %s devi pagare:</string>
+    <string name="link">Vai al sito dell\'Agenzia delle Entrate</string>
 </resources>
