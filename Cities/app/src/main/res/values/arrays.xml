@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cities">
+        <item>Rome</item>
+        <item>New York City</item>
+        <item>Paris</item>
+        <item>London</item>
+        <item>Berlin</item>
+        <item>Los Angeles</item>
+        <item>Tokyo</item>
+        <item>Kjiv</item>
+        <item>Milan</item>
+        <item>Miami</item>
+        <item>Madrid</item>
+        <item>Abu Dhabi</item>
+        <item>Dubai</item>
+        <item>Jerusalem</item>
+        <item>Reykjavik</item>
+        <item>Oslo</item>
+        <item>Stockholm</item>
+        <item>Turin</item>
+        <item>Florence</item>
+        <item>Edinburgh</item>
+        <item>Dublin</item>
+        <item>Zagreb</item>
+        <item>Canberra</item>
+        <item>Washington D.C.</item>
+        <item>Glasgow</item>
+        <item>Xianyang</item>
+        <item>Xanadu</item>
+        <item>Benin City</item>
+        <item>Ottawa</item>
+        <item>Marrakesh</item>
+        <item>Timbuktu</item>
+        <item>Kalamazoo</item>
+        <item>San Francisco</item>
+        <item>Toronto</item>
+        <item>Yokohama</item>
+        <item>Yaounde</item>
+        <item>Genoa</item>
+        <item>Haifa</item>
+        <item>Venice</item>
+        <item>Helsinki</item>
+        <item>Lisbon</item>
+        <item>Naples</item>
+        <item>Santo Stefano di Magra</item>
+        <item>Amsterdam</item>
+        <item>Copenhagen</item>
+        <item>Quebec</item>
+        <item>Quito</item>
+        <item>Quezon City</item>
+        <item>Pretoria</item>
+        <item>Johannesburg</item>
+        <item>Windhoek</item>
+        <item>Luanda</item>
+        <item>New Delhi</item>
+        <item>Vienna</item>
+        <item>Giza</item>
+        <item>Ulaanbaatar</item>
+        <item>Ur</item>
+        <item>Babylon</item>
+        <item>Athens</item>
+    </string-array>
+</resources>
