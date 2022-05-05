@@ -8,10 +8,7 @@ import com.example.cities.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
 
-    companion object {
-        const val LETTER = "letter"
-        const val SEARCH_PREFIX = "https://en.m.wikipedia.org/wiki/"
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
