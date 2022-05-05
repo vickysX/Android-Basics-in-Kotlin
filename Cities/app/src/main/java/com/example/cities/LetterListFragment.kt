@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cities.databinding.FragmentLetterListBinding
 
+
 class LetterListFragment : Fragment() {
 
     private var _binding: FragmentLetterListBinding? = null
-    private var binding = _binding!!
+    private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
     private var isLinearLayoutManager = true
 
@@ -75,4 +76,5 @@ class LetterListFragment : Fragment() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 }

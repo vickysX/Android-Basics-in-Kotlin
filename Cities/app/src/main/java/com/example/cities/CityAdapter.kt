@@ -33,7 +33,7 @@ class CityAdapter(private val letterId: String, context: Context) : RecyclerView
         val context = holder.view.context
         holder.cityButton.text = city
         holder.cityButton.setOnClickListener {
-            val queryUrl = Uri.parse("${DetailActivity.SEARCH_PREFIX}${city}")
+            val queryUrl = Uri.parse("${CityListFragment.SEARCH_PREFIX}${city}")
             val wikiIntent = Intent(Intent.ACTION_VIEW, queryUrl)
             context.startActivity(wikiIntent)
         }

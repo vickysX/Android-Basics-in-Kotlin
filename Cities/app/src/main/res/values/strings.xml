@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Cities</string>
     <string name="switch_layout">Switch layout</string>
+    <string name="title">Cities that start with {letter}</string>
 </resources>

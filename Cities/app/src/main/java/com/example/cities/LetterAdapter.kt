@@ -1,11 +1,12 @@
 package com.example.cities
 
-import android.content.Intent
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import androidx.navigation.findNavController
+import androidx.navigation.NavDirections
 
 class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
 
@@ -23,13 +24,14 @@ class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
-        val letter = letters[position]
-        holder.button.text = letter.toString()
+        val item = letters[position]
+
+        holder.button.text = item.toString()
         holder.button.setOnClickListener {
-            val context = holder.view.context
-            val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra(DetailActivity.LETTER, holder.button.text.toString())
-            context.startActivity(intent)
+            val action: NavDirections = LetterListFragmentDirections.actionLetterListFragmentToCityListFragment(
+                holder.button.text.toString()
+            )
+            holder.view.findNavController().navigate(action)
         }
     }
 
