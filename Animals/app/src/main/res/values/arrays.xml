@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="animal_classes">
+        <item>Mammals</item>
+        <item>Birds</item>
+        <item>Reptiles</item>
+        <item>Amphibians</item>
+        <item>Fish</item>
+        <item>Arthropods</item>
+        <item>Mollusca</item>
+        <item>Worms</item>
+        <item>Cnidaria</item>
+        <item>Sponges</item>
+    </string-array>
+</resources>

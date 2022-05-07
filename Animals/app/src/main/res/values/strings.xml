@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Animals</string>
+    <string name="class_name">{animalClass}</string>
+    <string name="layout_menu">Switch layout</string>
+
+    <string name="cat">Cat</string>
+    <string name="dog">Dog</string>
+    <string name="phoenix">Phoenix</string>
+    <string name="snake">Snake</string>
+</resources>
