@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Impiccato</string>
+    <string name="guesses">Tentativi: %d</string>
+    <string name="wrong_guesses">Tentativi sbagliati: %d su %d</string>
+    <string name="guess_instruction">Indovina una lettera!</string>
+    <string name="input_letter">Lettera</string>
+    <string name="skip_word">Mi arrendo</string>
+    <string name="submit_guess">Invia</string>
 </resources>
