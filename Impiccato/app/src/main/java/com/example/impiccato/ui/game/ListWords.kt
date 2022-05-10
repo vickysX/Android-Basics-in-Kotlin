@@ -4,5 +4,7 @@ const val MAX_NO_OF_WRONG_GUESSES = 9
 
 val allWordsList = listOf<String>(
     "consenso", "consulenza", "luogo", "integrazione", "accettazione", "eventuale",
-    "informazione", "sottoscrivere", "agenda", "comando", "suicidio", "morte"
+    "informazione", "sottoscrivere", "agenda", "comando", "suicidio", "morte",
+    "amore", "speranza", "gattini", "perditempo", "piacere", "autostima",
+    "fantascienza", "romanzo", "bellezza", "luce", "solare", "tenerezza", "affetto"
 )

@@ -8,6 +8,9 @@
         <variable
             name="gameViewModel"
             type="com.example.impiccato.ui.game.GameViewModel" />
+        <variable
+            name="maxNoOfWrongGuesses"
+            type="int" />
     </data>
 
     <ScrollView
@@ -25,6 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_padding"
+                android:text="@{@string/guesses(gameViewModel.guesses)}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -36,6 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_padding"
+                android:text="@{@string/wrong_guesses(gameViewModel.wrongGuesses, maxNoOfWrongGuesses)}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/double_margin"
+                android:text="@{gameViewModel.tempWord}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
                 android:textAlignment="center"
                 app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +97,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/skip_word"
                 style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/double_margin"
                 android:text="@string/skip_word"
@@ -100,7 +106,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/submit_guess"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/double_margin"
                 android:text="@string/submit_guess"

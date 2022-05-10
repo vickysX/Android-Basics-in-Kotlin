@@ -6,4 +6,12 @@
     <string name="input_letter">Lettera</string>
     <string name="skip_word">Mi arrendo</string>
     <string name="submit_guess">Invia</string>
+    <string name="you_won">Hai vinto in %d tentativi!</string>
+    <string name="you_lost">Game Over!</string>
+    <string name="skip">Non arrenderti!</string>
+    <string name="dialog_message">Vuoi continuare a giocare con una nuova parola?</string>
+    <string name="dialog_skip_error_message">La parola era %s. %s</string>
+    <string name="exit_game">Esci</string>
+    <string name="restart_game">Continua</string>
+    <string name="error">Lettera sbagliata, ritenta!</string>
 </resources>
