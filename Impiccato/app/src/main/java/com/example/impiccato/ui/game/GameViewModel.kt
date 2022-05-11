@@ -1,12 +1,13 @@
 package com.example.impiccato.ui.game
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
 
-    private var _currentWord= MutableLiveData(allWordsList.random())
+    private var _currentWord= MutableLiveData<String>()
     val currentWord: LiveData<String> get() = _currentWord
 
     private var _wrongGuesses = MutableLiveData<Int>(0)
@@ -15,7 +16,7 @@ class GameViewModel : ViewModel() {
     private var _guesses = MutableLiveData<Int>(0)
     val guesses: LiveData<Int> get() = _guesses
 
-    private var _tempWord = MutableLiveData(("_ ").repeat(currentWord.value!!.length - 1))
+    private var _tempWord = MutableLiveData<String>()
     val tempWord: LiveData<String> get() = _tempWord
 
     private val usedWords = mutableListOf<String>()
@@ -31,6 +32,7 @@ class GameViewModel : ViewModel() {
             _currentWord.value = allWordsList.random()
         }
         usedWords.add(currentWord.value!!)
+        _tempWord.value = ("_ ").repeat(currentWord.value!!.length)
     }
 
     fun isUserGuessCorrect(playerLetter: Char): Boolean {
@@ -43,11 +45,14 @@ class GameViewModel : ViewModel() {
     }
 
     fun updateTempWord(playerLetter: Char) {
-        val temp = StringBuilder(_tempWord.value!!)
-        var ind = currentWord.value!!.indexOf(playerLetter, 0, true)
+        var temp = StringBuilder(_tempWord.value!!)
+        Log.d("GameViewModel", "temp length: ${temp.length}")
+        Log.d("GameViewModel", "word length: ${_currentWord.value!!.length}")
+        var ind = _currentWord.value!!.indexOf(playerLetter, 0, true)
+        Log.d("GameViewModel", "ind: ${ind}")
         temp[ind * 2] = playerLetter
-        while (currentWord.value!!.substring(ind + 1).contains(playerLetter)) {
-            ind = currentWord.value!!.indexOf(playerLetter, ind + 1, true)
+        while (_currentWord.value!!.substring(ind + 1).contains(playerLetter)) {
+            ind = _currentWord.value!!.indexOf(playerLetter, ind + 1, true)
             temp[ind * 2] = playerLetter
         }
         _tempWord.value = temp.toString()
@@ -65,8 +70,7 @@ class GameViewModel : ViewModel() {
     fun reinitializeData() {
         _wrongGuesses.value = 0
         _guesses.value = 0
-        _currentWord.value = allWordsList.random()
         getWord()
-        _tempWord.value = ("_ ").repeat(currentWord.value!!.length - 1)
+        //_tempWord.value = ("_ ").repeat(_currentWord.value!!.length)
     }
 }

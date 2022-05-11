@@ -36,20 +36,25 @@ class GameFragment : Fragment() {
     }
 
     private fun submitGuess() {
-        if (viewModel.game()) {
-            val playerLetter: Char = binding.inputLetter.text!![0]
-            //viewModel.guess(playerLetter)
-            if (viewModel.isUserGuessCorrect(playerLetter)) {
-                viewModel.updateTempWord(playerLetter)
-                setErrorTextField(false)
-            } else {
-                setErrorTextField(true)
-            }
+        //if (viewModel.game()) {
+        val playerLetter: Char = binding.inputLetter.text!![0]
+        //viewModel.guess(playerLetter)
+        if (viewModel.isUserGuessCorrect(playerLetter)) {
+            viewModel.updateTempWord(playerLetter)
+            setErrorTextField(false)
         } else {
+            setErrorTextField(true)
+        }
+        if (!viewModel.game() && viewModel.victory()) {
+            showFinalWinDialog()
+        } else if (!viewModel.game() && !viewModel.victory()) {
+            showFinalLostDialog()
+        }
+        /*} else {
             if (viewModel.victory())
                 showFinalWinDialog()
             else showFinalLostDialog()
-        }
+        }*/
     }
 
     private fun restartGame() {
@@ -76,10 +81,10 @@ class GameFragment : Fragment() {
             .setTitle(getString(R.string.you_won, viewModel.guesses.value))
             .setMessage(R.string.dialog_message)
             .setNegativeButton(R.string.exit_game) { _, _ ->
-               exitGame()
+                exitGame()
             }
             .setPositiveButton(R.string.restart_game) { _, _ ->
-               restartGame()
+                restartGame()
             }
             .show()
     }
@@ -87,7 +92,13 @@ class GameFragment : Fragment() {
     private fun showFinalLostDialog() {
         MaterialAlertDialogBuilder(this.requireContext())
             .setTitle(R.string.you_lost)
-            .setMessage(getString(R.string.dialog_skip_error_message, viewModel.currentWord, getString(R.string.dialog_message)))
+            .setMessage(
+                getString(
+                    R.string.dialog_skip_error_message,
+                    viewModel.currentWord.value,
+                    getString(R.string.dialog_message)
+                )
+            )
             .setNegativeButton(R.string.exit_game) { _, _ ->
                 exitGame()
             }
@@ -100,7 +111,13 @@ class GameFragment : Fragment() {
     private fun showSkipDialog() {
         MaterialAlertDialogBuilder(this.requireContext())
             .setTitle(R.string.skip)
-            .setMessage(getString(R.string.dialog_skip_error_message, viewModel.currentWord, getString(R.string.dialog_message)))
+            .setMessage(
+                getString(
+                    R.string.dialog_skip_error_message,
+                    viewModel.currentWord.value,
+                    getString(R.string.dialog_message)
+                )
+            )
             .setNegativeButton(R.string.exit_game) { _, _ ->
                 exitGame()
             }

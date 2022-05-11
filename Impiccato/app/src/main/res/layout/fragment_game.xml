@@ -99,18 +99,25 @@
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/double_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginStart="@dimen/margin_padding"
+                android:layout_marginEnd="@dimen/margin_padding"
                 android:text="@string/skip_word"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/submit_guess"
+                app:layout_constraintBaseline_toBaselineOf="@id/submit_guess"
                 app:layout_constraintTop_toBottomOf="@id/input_box" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/submit_guess"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/double_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginStart="@dimen/margin_padding"
+                android:layout_marginEnd="@dimen/margin_padding"
                 android:text="@string/submit_guess"
                 app:layout_constraintStart_toEndOf="@id/skip_word"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/input_box" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
