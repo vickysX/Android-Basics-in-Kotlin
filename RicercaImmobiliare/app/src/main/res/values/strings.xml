@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ricerca Immobiliare</string>
+    <string name="welcome">Benvenut*!</string>
+    <string name="welcome_message">Trova la casa dei tuoi sogni a Pisa!</string>
+    <string name="start_button">Cerca</string>
+    <string name="select_price_range">Seleziona la fascia di prezzo</string>
+</resources>

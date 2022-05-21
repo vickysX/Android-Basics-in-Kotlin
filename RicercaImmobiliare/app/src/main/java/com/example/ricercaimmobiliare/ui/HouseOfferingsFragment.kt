@@ -1,4 +1,6 @@
 package com.example.ricercaimmobiliare.ui
 
-class HouseOfferingsFragment {
+import androidx.fragment.app.Fragment
+
+class HouseOfferingsFragment : Fragment() {
 }

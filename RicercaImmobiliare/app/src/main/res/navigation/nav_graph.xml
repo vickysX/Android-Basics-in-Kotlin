@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:id="@+id/nav_graph">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomeFragment">
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.ricercaimmobiliare.ui.WelcomeFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_priceRangeFragment"
+            app:destination="@id/priceRangeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/priceRangeFragment"
+        android:name="com.example.ricercaimmobiliare.ui.PriceRangeFragment"
+        android:label="@string/select_price_range"
+        tools:layout="@layout/fragment_price_range" >
+        <action
+            android:id="@+id/action_priceRangeFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+        <action
+            android:id="@+id/action_priceRangeFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.example.ricercaimmobiliare.ui.LocationFragment"
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_location" >
+        <action
+            android:id="@+id/action_locationFragment_to_houseOfferingsFragment"
+            app:destination="@id/houseOfferingsFragment" />
+        <action
+            android:id="@+id/action_locationFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/houseOfferingsFragment"
+        android:name="com.example.ricercaimmobiliare.ui.HouseOfferingsFragment"
+        android:label="fragment_house_offerings"
+        tools:layout="@layout/fragment_house_offerings" >
+        <action
+            android:id="@+id/action_houseOfferingsFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
 </navigation>
